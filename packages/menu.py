@@ -9,17 +9,19 @@ def menu(tit=""):
     print("")
 
 def opcao(op=[]):
+    print("-"*60)
     for c,v in enumerate(op):
-        print("CHECKCHECKCHECK")
-        print(c,v)
         print(f"{txtCor(c+1,"vermelho")}-{v}")
-        print("")
-        print("-"*60)
-        sleep(0.8)
+    print("-"*60)
+    sleep(0.4)
+    print("")
+    while True:
         check=str(input("Opção:"))
         try:
             check=int(check)
             return(check)
         except:
+            print("-"*60)
             print("ERRO: DIGITE UMA DAS OPÇÕES")
-            system('cls')
+            print("-"*60)
+            
