@@ -2,6 +2,7 @@ from .interface import *
 from time import sleep
 from os import system
 
+
 def menu(tit=""):
     print(bgCor("-"*60,"verde"))
     print(bgCor(f"{tit:^60}","verde"))
