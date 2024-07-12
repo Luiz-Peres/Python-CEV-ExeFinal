@@ -13,16 +13,29 @@ while True:
     if choice == "break":
         break
     
-    menu("Clientes")
+    menu("Clientes","verde")
     sleep(0.4)
-    choice=opcao(["Clientes Cadastrados","Cadastrar Cliente","Sair"])
+    choice=opcao(["Clientes Cadastrados","Cadastrar Cliente","Sair"],"red")
     system('cls')
     if choice == 1:
-        menu("Clientes Cadastrados")
+        menu("Clientes Cadastrados","amarelo")
         lerArquivo(arq)
+        print("-"*60)
+        choice=opcao(["Editar","Sair"],"red")
+        if choice == 1:
+            print("-"*60)
+            cod=leiaInt("Digite o ID:")
+            nome=str(input("Novo Nome:"))
+            idade=leiaInt("Nova Idade:")
+            print("-"*60)
+            editar(arq,cod,nome,idade)
+        else:
+            pass
     elif choice == 2:
-        menu("Cadastra Clientes")
-        pass
+        menu("Cadastrar Clientes","amarelo")
+        nome=str(input("Nome:"))
+        idade=leiaInt("Digite um numero:")
+        cadastrar(arq,nome,idade)
     else:
         break
     

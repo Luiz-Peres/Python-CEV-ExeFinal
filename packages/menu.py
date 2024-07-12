@@ -3,16 +3,16 @@ from time import sleep
 from os import system
 
 
-def menu(tit=""):
-    print(bgCor("-"*60,"verde"))
-    print(bgCor(f"{tit:^60}","verde"))
-    print(bgCor("-"*60,"verde"))
+def menu(tit="",cor="reset"):
+    print(bgCor("-"*60,cor))
+    print(bgCor(f"{tit:^60}",cor))
+    print(bgCor("-"*60,cor))
     print("")
 
-def opcao(op=[]):
+def opcao(op=[],cor="reset"):
     print("-"*60)
     for c,v in enumerate(op):
-        print(f"{txtCor(c+1,"vermelho")}-{v}")
+        print(f"{txtCor(c+1,cor)}-{v}")
     print("-"*60)
     sleep(0.4)
     print("")
