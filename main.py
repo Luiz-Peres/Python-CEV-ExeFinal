@@ -21,14 +21,39 @@ while True:
         menu("Clientes Cadastrados","amarelo")
         lerArquivo(arq)
         print("-"*60)
-        choice=opcao(["Editar","Sair"],"red")
+        choice=opcao(["Configurar","Sair"],"red")
+        system('cls')
         if choice == 1:
+            menu("Clientes Cadastrados","amarelo")
+            lerArquivo(arq)
             print("-"*60)
-            cod=leiaInt("Digite o ID:")
-            nome=str(input("Novo Nome:"))
-            idade=leiaInt("Nova Idade:")
-            print("-"*60)
-            editar(arq,cod,nome,idade)
+
+            choice=opcao(["Editar","Deletar","Sair"],"red")
+            system('cls')
+            if choice == 1:
+                menu("Clientes Cadastrados","amarelo")
+                lerArquivo(arq)
+                print("-"*60)
+
+                print("-"*60)
+                cod=leiaInt("Digite o ID:")
+                nome=str(input("Novo Nome:"))
+                idade=leiaInt("Nova Idade:")
+                print("-"*60)
+                editar(arq,choice,cod,nome,idade)
+                system('cls')
+            elif choice == 2:
+                menu("Clientes Cadastrados","amarelo")
+                lerArquivo(arq)
+                print("-"*60)
+
+                print("-"*60)
+                cod=leiaInt("Digite o ID:")
+                print("-"*60)
+                editar(arq,choice,cod)
+                system('cls')
+            else:
+                pass
         else:
             pass
     elif choice == 2:
@@ -36,6 +61,7 @@ while True:
         nome=str(input("Nome:"))
         idade=leiaInt("Digite um numero:")
         cadastrar(arq,nome,idade)
+        system='cls'
     else:
         break
     

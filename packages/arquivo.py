@@ -22,18 +22,27 @@ def lerArquivo(x):
     a.close()
 
 def cadastrar(arq,nome="desconhecido",idade=0):
+    a=open(arq,"rt")
+    b=a.read()
+    b=b.strip()
+    b=b.replace("\n",";")
+    b=b.split(";")
+    id=int(b[len(b)-3])
+    print(id+1)
+    a.close()
     a=open(arq,"at")
-    a.write(f"{nome};{idade}\n")
+    a.write(f"{id+1};{nome};{idade}\n")
     print("Novo registro adicionado!")
     a.close()
 
-def editar(arq,id,nome,idade):
+def editar(arq,choice,id,nome="",idade=0):
     person=[]
     cadastros=[]
     a=open(arq,"rt")
     b=a.read()
     b=b.replace("\n",";")
     b=b.split(";")
+    a.close()
     num=int(len(b)/3)
     z=0
     for x in range(num):
@@ -42,14 +51,29 @@ def editar(arq,id,nome,idade):
             z+=1
         cadastros+=[person[:]]
         person.clear()
-        
-    cadastros[id]=[id,nome,idade]
-    a=open(arq,"w")
-    for x in range(3):
-        for c in range(3):
-            if c != 2:
-                a.write(f"{cadastros[x][c]};")
-            else:
-                a.write(f"{cadastros[x][c]}")            
-        a.write("\n")
+    
+    if choice == 1:
+        cadastros[id]=[id,nome,idade]
+        a=open(arq,"w")
+        for x in range(len(cadastros)):
+            for c in range(3):
+                if c != 2:
+                    a.write(f"{cadastros[x][c]};")
+                    print(cadastros[x][c])
+                else:
+                    a.write(f"{cadastros[x][c]}")
+                    print(cadastros[x][c])
+            a.write("\n")
+    else:
+        cadastros.pop(id)
+        a=open(arq,"w")
+        for x in range(len(cadastros)):
+            for c in range(3):
+                if c != 2:
+                    a.write(f"{cadastros[x][c]};")
+                else:
+                    a.write(f"{cadastros[x][c]}")            
+            a.write("\n")
+    a.close()
+
     
