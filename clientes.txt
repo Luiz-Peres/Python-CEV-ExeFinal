@@ -1,4 +1,4 @@
-0;Julia;19
-1;Luiz;25
-2;Ana;20
-3;Roberto;39
+0;Luiz;25
+1;Ana;20
+2;Carlos;21
+3;Maria;89

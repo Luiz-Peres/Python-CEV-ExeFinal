@@ -1,4 +1,4 @@
-
+from time import sleep
 
 def arqExiste(x):
     try:
@@ -28,11 +28,9 @@ def cadastrar(arq,nome="desconhecido",idade=0):
     b=b.replace("\n",";")
     b=b.split(";")
     id=int(b[len(b)-3])
-    print(id+1)
     a.close()
     a=open(arq,"at")
     a.write(f"{id+1};{nome};{idade}\n")
-    print("Novo registro adicionado!")
     a.close()
 
 def editar(arq,choice,id,nome="",idade=0):
@@ -65,9 +63,12 @@ def editar(arq,choice,id,nome="",idade=0):
                     print(cadastros[x][c])
             a.write("\n")
     else:
+        n=0
         cadastros.pop(id)
         a=open(arq,"w")
         for x in range(len(cadastros)):
+            cadastros[x][0]=n
+            n+=1
             for c in range(3):
                 if c != 2:
                     a.write(f"{cadastros[x][c]};")
